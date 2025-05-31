@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Faktury from "./pages/Faktury";
 import Zakaznici from "./pages/Zakaznici";
 import Zariadenia from "./pages/Zariadenia";
+import Prehlady from "./pages/Prehlady";
 
 const queryClient = new QueryClient();
 
@@ -47,14 +49,7 @@ const App = () => (
             } />
           </Route>
           <Route path="/prehlady" element={<MainLayout title="Prehľady" subtitle="Štatistiky a reporty" />}>
-            <Route index element={
-              <div className="p-6">
-                <div className="text-center py-12">
-                  <h3 className="text-lg font-medium text-gray-900">Prehľady</h3>
-                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
-                </div>
-              </div>
-            } />
+            <Route index element={<Prehlady />} />
           </Route>
           <Route path="/nastavenia" element={<MainLayout title="Nastavenia" subtitle="Konfigurácia systému" />}>
             <Route index element={
