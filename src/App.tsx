@@ -1,9 +1,12 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import Dashboard from "./pages/Dashboard";
+import Objednavky from "./pages/Objednavky";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,8 +18,77 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={
+            <MainLayout title="Dashboard" subtitle="Prehľad aktivít a štatistík">
+              <Dashboard />
+            </MainLayout>
+          } />
+          <Route path="/objednavky" element={
+            <MainLayout title="Objednávky" subtitle="Správa servisných objednávok">
+              <Objednavky />
+            </MainLayout>
+          } />
+          <Route path="/faktury" element={
+            <MainLayout title="Faktúry" subtitle="Fakturácia a platby">
+              <div className="p-6">
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-medium text-gray-900">Faktúry</h3>
+                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
+                </div>
+              </div>
+            </MainLayout>
+          } />
+          <Route path="/zakaznici" element={
+            <MainLayout title="Zákazníci" subtitle="Databáza zákazníkov">
+              <div className="p-6">
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-medium text-gray-900">Zákazníci</h3>
+                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
+                </div>
+              </div>
+            </MainLayout>
+          } />
+          <Route path="/zariadenia" element={
+            <MainLayout title="Zariadenia" subtitle="Klimatizačné zariadenia">
+              <div className="p-6">
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-medium text-gray-900">Zariadenia</h3>
+                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
+                </div>
+              </div>
+            </MainLayout>
+          } />
+          <Route path="/kalendar" element={
+            <MainLayout title="Kalendár" subtitle="Plánovanie prác">
+              <div className="p-6">
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-medium text-gray-900">Kalendár</h3>
+                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
+                </div>
+              </div>
+            </MainLayout>
+          } />
+          <Route path="/prehlady" element={
+            <MainLayout title="Prehľady" subtitle="Štatistiky a reporty">
+              <div className="p-6">
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-medium text-gray-900">Prehľady</h3>
+                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
+                </div>
+              </div>
+            </MainLayout>
+          } />
+          <Route path="/nastavenia" element={
+            <MainLayout title="Nastavenia" subtitle="Konfigurácia systému">
+              <div className="p-6">
+                <div className="text-center py-12">
+                  <h3 className="text-lg font-medium text-gray-900">Nastavenia</h3>
+                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
+                </div>
+              </div>
+            </MainLayout>
+          } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
