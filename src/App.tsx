@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +7,9 @@ import MainLayout from "./components/layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import Objednavky from "./pages/Objednavky";
 import NotFound from "./pages/NotFound";
+import Faktury from "./pages/Faktury";
+import Zakaznici from "./pages/Zakaznici";
+import Zariadenia from "./pages/Zariadenia";
 
 const queryClient = new QueryClient();
 
@@ -26,34 +28,13 @@ const App = () => (
             <Route index element={<Objednavky />} />
           </Route>
           <Route path="/faktury" element={<MainLayout title="Faktúry" subtitle="Fakturácia a platby" />}>
-            <Route index element={
-              <div className="p-6">
-                <div className="text-center py-12">
-                  <h3 className="text-lg font-medium text-gray-900">Faktúry</h3>
-                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
-                </div>
-              </div>
-            } />
+            <Route index element={<Faktury />} />
           </Route>
           <Route path="/zakaznici" element={<MainLayout title="Zákazníci" subtitle="Databáza zákazníkov" />}>
-            <Route index element={
-              <div className="p-6">
-                <div className="text-center py-12">
-                  <h3 className="text-lg font-medium text-gray-900">Zákazníci</h3>
-                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
-                </div>
-              </div>
-            } />
+            <Route index element={<Zakaznici />} />
           </Route>
           <Route path="/zariadenia" element={<MainLayout title="Zariadenia" subtitle="Klimatizačné zariadenia" />}>
-            <Route index element={
-              <div className="p-6">
-                <div className="text-center py-12">
-                  <h3 className="text-lg font-medium text-gray-900">Zariadenia</h3>
-                  <p className="text-gray-600 mt-2">Stránka bude implementovaná v ďalšej verzii</p>
-                </div>
-              </div>
-            } />
+            <Route index element={<Zariadenia />} />
           </Route>
           <Route path="/kalendar" element={<MainLayout title="Kalendár" subtitle="Plánovanie prác" />}>
             <Route index element={
